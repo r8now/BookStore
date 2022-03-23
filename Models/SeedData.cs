@@ -9,10 +9,12 @@ namespace BookStore.Models
         {
             using (var context = new BookStoreContext(serviceProvider.GetRequiredService<DbContextOptions<BookStoreContext>>()))
             {
+                //Kommentera bort if satsen om du vill lägga till nya böcker så läggs dem nya böckerna på den befintliga databasen.
+
                 if (context.Books.Any())    // Check if database contains any books
-                {
-                    return;     // Database contains books already
-                }
+               {
+                   return;     // Database contains books already
+              }
 
                 context.Books.AddRange(
                     new Book
